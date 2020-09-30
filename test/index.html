@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="style.css" />
+		<title>Cafe with a Vue</title>
+	</head>
+	<body>
+
+        <div id="app" class="app">
+			<h1>{{ restaurantName }}</h1>
+			<p class="description">
+				Bienvenue dans notre café {{ restaurantName }} ! Nous sommes réputés
+				pour notre pain et nos merveilleuses pâtisseries. Faites vous plaisir
+				dès le matin ou avec un goûter réconfortant. Mais attention, vous verrez
+				qu'il est difficile de s'arrêter.
+			</p>
+   
+			
+       
+
+        <h3>Horaires d'ouvertures:</h3>
+        <p>Dimanche: 10h00 - 16h00</p>
+        <p>Du lundi au vendredi: 09h00 - 17h00</p>
+        <p>Samedi: 09h30 - 18h00</p> 
+
+        <h3>Contactez nous !</h3>
+        <p>Adresse : {{ adress }}</p>
+			<p>Téléphone : {{ phoneNumber }}</p>
+			<p>Email : {{ mail }}</p>
+	        
+        <h2>VueMart :</h2>
+        <h3>Panier:</h3>
+        <ul>
+            <li>Pommes: {{ costOfApple }} €</li>
+            <li>Bananes: {{ costOfBanane }} €</li>
+            <li>Noix de Coco: {{ costOfCoconut }} €</li>
+        </ul>
+        <p>Total des articles:</p>
+        <p>{{ costOfApple + costOfBanane + costOfCoconut }} €</p>
+        
+        <footer class="footer">
+                <p>Copyright {{ restaurantName }} {{ year }}</p>
+        </footer>
+        </div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			const app = new Vue({
+				el: "#app",
+				data: {
+					restaurantName: "Café avec Vue",
+                    year: 2020,
+                    mail: 'hello@cafewithavue.bakery',
+                    adress: '18 avenue du Beurre, Paris, France',
+                    phoneNumber: '01 88 88 88 88',
+                    costOfApple: 6,
+                    costOfBanane: 3,
+                    costOfCoconut: 8,
+				},
+			    computed: {
+                    totalAmount() {
+                        return this.costOfApple + this.costOfBanane + this.costOfCoconut
+                    }
+                }
+            })
+		</script>
+		<!--    Mon code 
+            <div class="app">
+			<h1 id="restaurantName">{{ nom }}</h1>
+			<p class="description">
+				Bienvenue dans notre café la belle vue ! Nous sommes réputés pour notre
+				pain et nos merveilleuses pâtisseries. Faites vous plaisir dès le matin
+				ou avec un goûter réconfortant. Mais attention, vous verrez qu'il est
+				difficile de s'arrêter.
+			</p>
+			<footer class="footer">
+				<p>Copyright La belle vue 2020</p>
+			</footer>
+		</div>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    console.log(Vue);
+    const app = new Vue ({
+            el: '#restaurantName',
+            data: {
+                nom: 'La Belle Vue',
+                year: 2019,
+                info: {
+                    topic: 'VueJS',
+                    length: 2
+                }
+            }
+        })
+  </script> -->
+</body>
+</html>
